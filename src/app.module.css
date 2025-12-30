@@ -54,6 +54,7 @@ align-items: center;
 }
 
 .contentContainer {
+padding-left: 150px;
   display: flex;
   flex-direction: column;
   padding-top: 150px;

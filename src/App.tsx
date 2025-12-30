@@ -36,7 +36,7 @@ function App() {
 
 
       <div className={styles.lanyardContainer}>
-        <Lanyard />
+        <Lanyard position={[0, -8, 30]} />
       </div>
 
 
