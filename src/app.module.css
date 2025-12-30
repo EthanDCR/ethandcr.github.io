@@ -54,9 +54,12 @@ align-items: center;
 }
 
 .contentContainer {
-padding-left: 150px;
+  padding-left: 150px;
   display: flex;
   flex-direction: column;
   padding-top: 150px;
+  position: relative;
+  z-index: 200;
+  pointer-events: auto;
 }
 

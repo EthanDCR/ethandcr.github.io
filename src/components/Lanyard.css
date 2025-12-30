@@ -16,6 +16,6 @@
   transform-origin: top left;
 }
 
-.lanyard-wrapper > * {
+.lanyard-wrapper canvas {
   pointer-events: auto;
 }
