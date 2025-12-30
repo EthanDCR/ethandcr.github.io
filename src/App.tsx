@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styles from "./app.module.css"
 import Lanyard from "./components/Lanyard"
+import cardLogo from "./components/randomlogo.png"
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
 
 
       <div className={styles.lanyardContainer}>
-        <Lanyard position={[10, -8, 30]} />
+        <Lanyard position={[10, -8, 30]} cardImage={cardLogo} />
       </div>
 
 
