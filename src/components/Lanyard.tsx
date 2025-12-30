@@ -32,8 +32,8 @@ interface LanyardProps {
 }
 
 export default function Lanyard({
-  position = [0, 0, 30],
-  gravity = [0, -40, 0],
+  position = [0, 10, 20],
+  gravity = [0, -50, 0],
   fov = 20,
   transparent = true,
   cardImage
@@ -186,7 +186,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardImage }: Band
 
   return (
     <>
-      <group position={[-10, 8, 0]}>
+      <group position={[-5, 8, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type={'fixed' as RigidBodyProps['type']} />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps} type={'dynamic' as RigidBodyProps['type']}>
           <BallCollider args={[0.1]} />

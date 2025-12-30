@@ -27,7 +27,7 @@ function App() {
   ]
 
   const projectLinks: ProjectLink[] = [
-    { description: "Current favorite project", link: "https://www.github.com/ethandcr/memo-deck", name: "memoDeck" },
+    { description: "Current favorite ", link: "https://www.github.com/ethandcr/memo-deck", name: "memoDeck" },
     { description: "Fullstack web", link: "https://www.ownerinfo.com", name: "Owner Info" },
     { description: "Fun one", link: "https://www.github.com/ethandcr/pi-nas-app", name: "Pi Nas App" },
   ]
@@ -54,9 +54,12 @@ function App() {
             <p>email: {email}</p>
           </div>
 
-          <h2>Projects</h2>
+
+          <h2>[Projects]</h2>
+
 
           <div className={styles.projects}>
+
             {projectLinks.length > 0 && projectLinks.map((link, i) => (
               <div key={i}>
                 <h3 key={i}>{link.description}</h3>
