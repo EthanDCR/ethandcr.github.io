@@ -1,0 +1,9 @@
+
+
+
+- logo loop
+- card thingy
+- background effect maybe or drawing?
+
+  -update github readmes for related projects
+  -update linkedin

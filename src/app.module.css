@@ -1,0 +1,61 @@
+.page{
+  padding-right: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.links{
+display: flex;
+gap: 10px;
+}
+
+
+.link{
+  color: blue;
+  text-decoration: none;
+}
+
+
+.email {
+  align-self: center;
+}
+
+
+.page h2 {
+  justify-self: center;
+}
+
+
+.projects {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+
+.projects div {
+  text-align: center;
+}
+
+.lanyardContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lanyardContainer > * {
+  pointer-events: auto;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+}
+
