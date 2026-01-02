@@ -125,6 +125,20 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardImage }: Band
   const { nodes, materials } = useGLTF(cardGLB) as any;
   const texture = useTexture(lanyard);
   const customCardTexture = cardImage ? useTexture(cardImage) : null;
+
+  // Configure the custom card texture
+  useEffect(() => {
+    if (customCardTexture) {
+      customCardTexture.wrapS = THREE.ClampToEdgeWrapping;
+      customCardTexture.wrapT = THREE.ClampToEdgeWrapping;
+      customCardTexture.rotation = Math.PI; // Rotate 180 degrees
+      customCardTexture.center.set(0.5, 0.5); // Set rotation center
+      customCardTexture.repeat.set(1, 1); // No zoom - show full image
+      customCardTexture.offset.set(0, 0); // No offset
+      customCardTexture.needsUpdate = true;
+    }
+  }, [customCardTexture]);
+
   const [curve] = useState(
     () =>
       new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
@@ -226,6 +240,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, cardImage }: Band
                 clearcoatRoughness={0.15}
                 roughness={0.9}
                 metalness={0.8}
+                side={THREE.FrontSide}
               />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
