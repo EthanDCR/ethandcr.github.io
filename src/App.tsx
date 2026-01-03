@@ -2,6 +2,9 @@ import { useState } from "react"
 import styles from "./app.module.css"
 import Lanyard from "./components/Lanyard"
 import cardLogo from "../public/selfie2cropped.png"
+import qrCode from "../public/qrcodeVim.png"
+import moneroLogo from "../public/monero-xmr-logo.svg"
+
 
 
 function App() {
@@ -45,7 +48,6 @@ function App() {
   return (
     <div className={styles.page}>
 
-
       <div className={styles.lanyardContainer}>
         <Lanyard position={[10, -8, 30]} cardImage={cardLogo} />
       </div>
@@ -87,7 +89,15 @@ function App() {
           <a className={styles.tracker} href="https://www.github.com/EthanDCR/rm-counter">Sales tracker/game</a>
         </div>
 
+        <div className={styles.moneroStuff}>
+          <img src={moneroLogo} width={75}></img>
+          <img src={qrCode} width={75}></img>
+        </div>
+
+
       </div>
+
+
     </div >
   )
 }

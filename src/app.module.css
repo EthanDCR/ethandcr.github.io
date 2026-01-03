@@ -97,3 +97,10 @@ align-items: center;
 text-decoration: none;
 padding-left: 50px;
 }
+
+.moneroStuff{
+display: flex;
+padding-top: 50px;
+gap: 20px;
+}
+
