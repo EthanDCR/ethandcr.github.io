@@ -16,6 +16,13 @@
   animation: backgroundScroll 30s linear infinite;
 }
 
+.topSection{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
 .links{
 display: flex;
 gap: 10px;
@@ -42,8 +49,8 @@ justify-self: center;
 
 .projects {
 display: flex;
-flex-direction: column;
 justify-content: center;
+gap: 20px;
 align-items: center;
 }
 
@@ -67,14 +74,21 @@ align-items: center;
 }
 
 .contentContainer {
-  padding-top: 200px;
-  padding-left: 150px;
+  padding-right: 50px;
+  padding-top: 15px;
+  padding-left: 50px;
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
   z-index: 200;
   pointer-events: none;
+}
+
+.contentContainer h1 {
+  font-size: 28px;
+  padding-left: 50px;
 }
 
 .contentContainer * {
@@ -95,12 +109,25 @@ align-items: center;
 
 .tracker {
 text-decoration: none;
-padding-left: 50px;
+padding-left: 300px;
 }
 
 .moneroStuff{
 display: flex;
-padding-top: 50px;
+padding-top: 30px;
 gap: 20px;
+}
+
+.mp4Container{
+  padding-top: 25px;
+}
+
+.wrapper {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: blue;
+  margin: 30px;
+background-color: rgba(0, 123, 255, 0.1);
 }
 
