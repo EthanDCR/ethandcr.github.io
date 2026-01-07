@@ -78,34 +78,38 @@ function App() {
         <div className={styles.contentContainer}>
           <div className={styles.identityBand}>
             <h1>{fullName}</h1>
-            <p className={styles.subtitle}>Developer</p>
+            <p className={styles.subtitle}>Software Developer</p>
           </div>
 
           <div className={styles.contextBand}>
             <span>{location}</span>
             <span className={styles.separator}>•</span>
             <span>{email}</span>
-            <img src={guitar} width={22} height={22} />
           </div>
 
           <div className={styles.topSection}>
             <div className={styles.linksAndStack}>
-              <div className={styles.linksGroup}>
-                <span className={styles.groupLabel}>Links</span>
-                <div className={styles.links}>
-                  {socialLinks.length > 0 && socialLinks.map((link, i) => (
+              <div className={styles.links}>
+                {socialLinks.length > 0 && socialLinks.map((link, i) => (
+                  <>
+                    {i > 0 && <span className={styles.linkSeparator}>·</span>}
                     <a className={styles.link} key={i} href={link.link}>{link.name}</a>
-                  ))}
-                </div>
+                  </>
+                ))}
               </div>
 
-              <div className={styles.stackGroup}>
-                <span className={styles.groupLabel}>Stack</span>
-                <div className={styles.logoContainer}>
-                  {imageLogos.map((logo, i) => (
-                    <img key={i} src={logo.src} alt={logo.alt} />
-                  ))}
-                </div>
+              <div className={styles.stackList}>
+                <span>TypeScript</span>
+                <span>·</span>
+                <span>React</span>
+                <span>·</span>
+                <span>Go</span>
+                <span>·</span>
+                <span>Node</span>
+                <span>·</span>
+                <span>Linux</span>
+                <span>·</span>
+                <span>Git</span>
               </div>
             </div>
 
@@ -125,9 +129,11 @@ function App() {
             </div>
           </div>
 
-          <div className={styles.moneroStuff}>
-            <img src={moneroLogo} width={75}></img>
-            <img src={qrCode} width={75}></img>
+          <div className={styles.footer}>
+            <div className={styles.moneroStuff}>
+              <img src={moneroLogo} width={60}></img>
+              <img src={qrCode} width={60}></img>
+            </div>
           </div>
 
 
