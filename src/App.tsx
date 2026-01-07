@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from "./app.module.css"
 import Lanyard from "./components/Lanyard"
-import cardLogo from "../public/headShot.png"
+import cardLogo from "../public/headShotCropped1.png"
 import qrCode from "../public/qrcodeVim.png"
 import moneroLogo from "../public/monero-xmr-logo.svg"
 
@@ -10,6 +10,7 @@ function App() {
 
   const [email] = useState("clinteth.dev@gmail.com")
   const [fullName] = useState("ETHAN CLINTON-RAGONESE")
+  const [location, setLocation] = useState<string>("Waukesha, WI")
 
   interface socialLink {
     name: String
@@ -29,7 +30,7 @@ function App() {
   ]
 
   const projectLinks: ProjectLink[] = [
-    { description: "[Current project] ", link: "https://www.github.com/EthanDCR/memo-deck/tree/main/wails", name: "memoDeck" },
+    { description: "[Current project(s)] ", link: "https://www.github.com/EthanDCR/memo-deck/tree/main/wails", name: "memoDeck" },
     { description: "[Fullstack web]", link: "https://www.ownerinfo.com", name: "Owner Info" },
     { description: "[Fun ones]", link: "https://www.github.com/ethandcr/pi-nas-app", name: "Pi Nas App" },
   ]
@@ -53,7 +54,6 @@ function App() {
 
 
         <div className={styles.contentContainer}>
-
           <h1>{fullName}</h1>
 
           <div className={styles.logoContainer}>
@@ -62,6 +62,8 @@ function App() {
             ))}
           </div>
 
+
+          <p>{location}</p>
           <div className={styles.topSection}>
             <div className={styles.links}>
               {socialLinks.length > 0 && socialLinks.map((link, i) => (
@@ -72,7 +74,6 @@ function App() {
             <div className={styles.email}>
               <p><strong>{email}</strong> </p>
             </div>
-
 
 
             <div className={styles.projects}>
@@ -92,7 +93,10 @@ function App() {
             <img src={qrCode} width={75}></img>
           </div>
 
+
         </div>
+
+
 
       </div>
     </div >

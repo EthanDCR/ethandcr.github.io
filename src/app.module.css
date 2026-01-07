@@ -118,15 +118,17 @@ padding-top: 30px;
 gap: 20px;
 }
 
+
 .mp4Container{
   padding-top: 25px;
 }
+
 
 .wrapper {
   border-style: solid;
   border-radius: 5px;
   border-width: 3px;
-  border-color: blue;
+  border-color: black;
   margin: 30px;
 background-color: rgba(0, 123, 255, 0.1);
 }
