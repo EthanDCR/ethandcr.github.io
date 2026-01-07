@@ -4,7 +4,6 @@ import Lanyard from "./components/Lanyard"
 import cardLogo from "../public/headShotCropped1.png"
 import qrCode from "../public/qrcodeVim.png"
 import moneroLogo from "../public/monero-xmr-logo.svg"
-import guitar from "../public/guitar.svg"
 
 
 
@@ -12,7 +11,7 @@ function App() {
 
   const [email] = useState("clinteth.dev@gmail.com")
   const [fullName] = useState("ETHAN CLINTON-RAGONESE")
-  const [location, setLocation] = useState<string>("Waukesha, WI")
+  const location = "Waukesha, WI"
 
 
   interface socialLink {
@@ -57,16 +56,6 @@ function App() {
 
   ]
 
-  const imageLogos = [
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg", alt: "typescript" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg", atl: "golang" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg", alt: "react" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", alt: "git" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg", alt: "linux" },
-    //    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg", alt: "nodejs" },
-  ];
-
-
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
@@ -78,7 +67,7 @@ function App() {
         <div className={styles.contentContainer}>
           <div className={styles.identityBand}>
             <h1>{fullName}</h1>
-            <p className={styles.subtitle}>Software Developer</p>
+            <p className={styles.subtitle}>Developer</p>
           </div>
 
           <div className={styles.contextBand}>
