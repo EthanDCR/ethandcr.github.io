@@ -4,6 +4,8 @@ import Lanyard from "./components/Lanyard"
 import cardLogo from "../public/headShotCropped1.png"
 import qrCode from "../public/qrcodeVim.png"
 import moneroLogo from "../public/monero-xmr-logo.svg"
+import guitar from "../public/guitar.svg"
+
 
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
   const [email] = useState("clinteth.dev@gmail.com")
   const [fullName] = useState("ETHAN CLINTON-RAGONESE")
   const [location, setLocation] = useState<string>("Waukesha, WI")
+
 
   interface socialLink {
     name: String
@@ -39,9 +42,9 @@ function App() {
     { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg", alt: "typescript" },
     { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg", atl: "golang" },
     { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg", alt: "react" },
-    //    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", alt: "git" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", alt: "git" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg", alt: "linux" },
     //    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg", alt: "nodejs" },
-    //    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg", alt: "linux" },
   ];
 
 
@@ -62,8 +65,12 @@ function App() {
             ))}
           </div>
 
+          <div className={styles.location}>
+            <p>{location}</p>
+            <img src={guitar} width={35} height={35} />
+          </div>
 
-          <p>{location}</p>
+
           <div className={styles.topSection}>
             <div className={styles.links}>
               {socialLinks.length > 0 && socialLinks.map((link, i) => (
