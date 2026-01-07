@@ -76,29 +76,37 @@ function App() {
 
 
         <div className={styles.contentContainer}>
-          <h1>{fullName}</h1>
-
-          <div className={styles.logoContainer}>
-            {imageLogos.map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} />
-            ))}
+          <div className={styles.identityBand}>
+            <h1>{fullName}</h1>
+            <p className={styles.subtitle}>Developer</p>
           </div>
 
-          <div className={styles.location}>
-            <p>{location}</p>
-            <img src={guitar} width={35} height={35} />
+          <div className={styles.contextBand}>
+            <span>{location}</span>
+            <span className={styles.separator}>•</span>
+            <span>{email}</span>
+            <img src={guitar} width={22} height={22} />
           </div>
-
 
           <div className={styles.topSection}>
-            <div className={styles.links}>
-              {socialLinks.length > 0 && socialLinks.map((link, i) => (
-                <a className={styles.link} key={i} href={link.link} >| {link.name} |</a>
-              ))}
-            </div>
+            <div className={styles.linksAndStack}>
+              <div className={styles.linksGroup}>
+                <span className={styles.groupLabel}>Links</span>
+                <div className={styles.links}>
+                  {socialLinks.length > 0 && socialLinks.map((link, i) => (
+                    <a className={styles.link} key={i} href={link.link}>{link.name}</a>
+                  ))}
+                </div>
+              </div>
 
-            <div className={styles.email}>
-              <p><strong>{email}</strong> </p>
+              <div className={styles.stackGroup}>
+                <span className={styles.groupLabel}>Stack</span>
+                <div className={styles.logoContainer}>
+                  {imageLogos.map((logo, i) => (
+                    <img key={i} src={logo.src} alt={logo.alt} />
+                  ))}
+                </div>
+              </div>
             </div>
 
 
