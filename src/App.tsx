@@ -33,9 +33,28 @@ function App() {
   ]
 
   const projectLinks: ProjectLink[] = [
-    { description: "[Current project(s)] ", link: "https://www.github.com/EthanDCR/memo-deck/tree/main/wails", name: "memoDeck" },
-    { description: "[Fullstack web]", link: "https://www.ownerinfo.com", name: "Owner Info" },
-    { description: "[Fun ones]", link: "https://www.github.com/ethandcr/pi-nas-app", name: "Pi Nas App" },
+    {
+      name: "MemoDeck",
+      link: "https://www.github.com/EthanDCR/memo-deck/tree/main/wails",
+      description: "An offline, cross-platform desktop study app that generates flashcards from local files using on-device LLMs. Built to explore spaced repetition, local inference, and learning tools without relying on cloud services."
+    },
+    {
+      name: "OwnerInfo (Proprietary)",
+      link: "https://www.ownerinfo.com",
+      description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers."
+    },
+
+    {
+      name: "Pi Nas App",
+      link: "https://www.github.com/ethandcr/pi-nas-app",
+      description: "A React client and Go backend for managing files on a Raspberry Pi. The Go server handles filesystem operations and HTTP requests from the client. Frontend is bundled and served from the Pi, accessible over the local network."
+    },
+    {
+      name: "Sales Tracker / Game",
+      link: "https://www.github.com/EthanDCR/rm-counter",
+      description: "A real-time sales tracking app with live chat and scoreboard streaming via WebSockets. Uses SQLite for persistent storage of rep stats and historical data."
+    },
+
   ]
 
   const imageLogos = [
@@ -83,18 +102,21 @@ function App() {
             </div>
 
 
-            <div className={styles.projects}>
-
-              {projectLinks.length > 0 && projectLinks.map((link, i) => (
-                <div key={i}>
-                  <h3 key={i}>{link.description}</h3>
-                  <a className={styles.link} href={link.link} > {link.name} </a>
-                </div>
-              ))}
+            <div className={styles.projectsSection}>
+              <h2>Projects</h2>
+              <div className={styles.projects}>
+                {projectLinks.length > 0 && projectLinks.map((link, i) => (
+                  <div key={i} className={styles.projectCard}>
+                    <a className={styles.projectLink} href={link.link}>
+                      <h3>{link.name}</h3>
+                    </a>
+                    <p className={styles.projectDescription}>{link.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <a className={styles.tracker} href="https://www.github.com/EthanDCR/rm-counter">Sales tracker/game</a>
           <div className={styles.moneroStuff}>
             <img src={moneroLogo} width={75}></img>
             <img src={qrCode} width={75}></img>
