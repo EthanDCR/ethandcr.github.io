@@ -37,7 +37,7 @@
 .sectionDivider {
   height: 1px;
   background: rgba(0, 0, 0, 0.25);
-  margin: 18px 0;
+  margin: 14px 0;
   width: 100%;
 }
 
@@ -160,7 +160,7 @@
 
 .identityBand {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .identityBand h1 {
@@ -189,7 +189,7 @@
   gap: 12px;
   font-size: 15px;
   color: #555;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .separator {
