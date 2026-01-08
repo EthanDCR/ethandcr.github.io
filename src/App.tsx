@@ -58,11 +58,10 @@ function App() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.wrapper}>
+      <>
         <div className={styles.lanyardContainer}>
           <Lanyard position={[10, -8, 30]} cardImage={cardLogo} />
         </div>
-
 
         <div className={styles.contentContainer}>
           <div className={styles.identityBand}>
@@ -130,10 +129,7 @@ function App() {
 
 
         </div>
-
-
-
-      </div>
+      </>
     </div >
   )
 }
