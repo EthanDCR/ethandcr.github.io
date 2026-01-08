@@ -37,8 +37,9 @@
 .sectionDivider {
   height: 1px;
   background: rgba(0, 0, 0, 0.25);
-  margin: 14px 0;
-  width: 100%;
+  margin: 16px auto;
+  width: 65%;
+  opacity: 0.6;
 }
 
 .links{
@@ -83,7 +84,8 @@
   text-align: center;
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 18px;
   padding: 0;
   border: none;
   background: transparent;
