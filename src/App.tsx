@@ -76,31 +76,34 @@ function App() {
             <span>{email}</span>
           </div>
 
-          <div className={styles.topSection}>
-            <div className={styles.linksAndStack}>
-              <div className={styles.links}>
-                {socialLinks.length > 0 && socialLinks.map((link, i) => (
-                  <>
-                    {i > 0 && <span className={styles.linkSeparator}>·</span>}
-                    <a className={styles.link} key={i} href={link.link}>{link.name}</a>
-                  </>
-                ))}
-              </div>
-
-              <div className={styles.stackList}>
-                <span>TypeScript</span>
-                <span>·</span>
-                <span>React</span>
-                <span>·</span>
-                <span>Go</span>
-                <span>·</span>
-                <span>Node</span>
-                <span>·</span>
-                <span>Linux</span>
-                <span>·</span>
-                <span>Git</span>
-              </div>
+          <div className={styles.linksAndStack}>
+            <div className={styles.links}>
+              {socialLinks.length > 0 && socialLinks.map((link, i) => (
+                <>
+                  {i > 0 && <span className={styles.linkSeparator}>·</span>}
+                  <a className={styles.link} key={i} href={link.link}>{link.name}</a>
+                </>
+              ))}
             </div>
+
+            <div className={styles.stackList}>
+              <span>TypeScript</span>
+              <span>·</span>
+              <span>React</span>
+              <span>·</span>
+              <span>Go</span>
+              <span>·</span>
+              <span>Node</span>
+              <span>·</span>
+              <span>Linux</span>
+              <span>·</span>
+              <span>Git</span>
+            </div>
+          </div>
+
+          <div className={styles.sectionDivider}></div>
+
+          <div className={styles.topSection}>
 
 
             <div className={styles.projectsSection}>
