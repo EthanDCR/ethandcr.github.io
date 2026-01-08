@@ -44,7 +44,7 @@ function App() {
     },
 
     {
-      name: "Pi Nas App",
+      name: "Nas App",
       link: "https://www.github.com/ethandcr/pi-nas-app",
       description: "A React client and Go backend for managing files on a Raspberry Pi. The Go server handles filesystem operations and HTTP requests from the client. Frontend is bundled and served from the Pi, accessible over the local network."
     },
