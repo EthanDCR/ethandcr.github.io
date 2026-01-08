@@ -29,8 +29,8 @@ function App() {
 
   const socialLinks: socialLink[] = [
     { name: "Github", link: "https://www.github.com/ethandcr" },
-    { name: "Linkedin", link: "https://www.linkedin.com/in/ethan-clinton-306581293" },
-    { name: "Instagram", link: "https://www.instagram.com/ethanblinton" }
+    { name: "Linkedin", link: "https://www.linkedin.com/in/ethan-clinton-ragonese-4051273a5" },
+    //    { name: "Instagram", link: "https://www.instagram.com/ethanblinton" }
   ]
 
   const projectLinks: ProjectLink[] = [
