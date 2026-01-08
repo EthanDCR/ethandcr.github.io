@@ -4,6 +4,7 @@ import Lanyard from "./components/Lanyard"
 import cardLogo from "../public/headShotCropped1.png"
 import qrCode from "../public/qrcodeVim.png"
 import moneroLogo from "../public/monero-xmr-logo.svg"
+import resumeIcon from "../public/resume.svg"
 
 
 
@@ -23,6 +24,7 @@ function App() {
     name: string
     link: string
     description: string
+    techIcons?: string[]
   }
 
   const socialLinks: socialLink[] = [
@@ -35,23 +37,27 @@ function App() {
     {
       name: "MemoDeck",
       link: "https://www.github.com/EthanDCR/memo-deck/tree/main/wails",
-      description: "An offline, cross-platform desktop study app that generates flashcards from local files using on-device LLMs. Built to explore spaced repetition, local inference, and learning tools without relying on cloud services."
+      description: "An offline, cross-platform desktop study app that generates flashcards from local files using on-device LLMs. Built to explore spaced repetition, local inference, and learning tools without relying on cloud services.",
+      techIcons: ["go", "react", "typescript", "ollama"]
     },
     {
       name: "OwnerInfo (Proprietary)",
       link: "https://www.ownerinfo.com",
-      description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers."
+      description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers.",
+      techIcons: ["nextdotjs", "typescript", "supabase", "stripe"]
     },
 
     {
       name: "Nas App",
       link: "https://www.github.com/ethandcr/pi-nas-app",
-      description: "A React client and Go backend for managing files on a Raspberry Pi. The Go server handles filesystem operations and HTTP requests from the client. Frontend is bundled and served from the Pi, accessible over the local network."
+      description: "A React client and Go backend for managing files on a Raspberry Pi. The Go server handles filesystem operations and HTTP requests from the client. Frontend is bundled and served from the Pi, accessible over the local network.",
+      techIcons: ["raspberrypi", "go", "react", "linux"]
     },
     {
-      name: "Sales Tracker / Game",
+      name: "Live Sales Scoreboard",
       link: "https://www.github.com/EthanDCR/rm-counter",
-      description: "A real-time sales tracking app with live chat and scoreboard streaming via WebSockets. Uses SQLite for persistent storage of rep stats and historical data."
+      description: "A real-time sales tracking app with live chat and scoreboard streaming via WebSockets. Uses SQLite for persistent storage of rep stats and historical data.",
+      techIcons: ["react", "sqlite", "nodedotjs"]
     },
 
   ]
@@ -64,6 +70,10 @@ function App() {
         </div>
 
         <div className={styles.contentContainer}>
+          <a href="/EthanDcr.resume.pdf" download className={styles.resumeDownload}>
+            <img src={resumeIcon} alt="Resume" className={styles.resumeIcon} />
+            <span className={styles.resumeText}>Resume</span>
+          </a>
           <div className={styles.identityBand}>
             <h1>{fullName}</h1>
             <p className={styles.subtitle}>Developer</p>
@@ -113,6 +123,18 @@ function App() {
                     <a className={styles.projectLink} href={link.link}>
                       <h3>{link.name}</h3>
                     </a>
+                    {link.techIcons && link.techIcons.length > 0 && (
+                      <div className={styles.techIcons}>
+                        {link.techIcons.map((icon, idx) => (
+                          <img
+                            key={idx}
+                            src={`/simpleIcons/${icon}.svg`}
+                            alt={icon}
+                            className={styles.techIcon}
+                          />
+                        ))}
+                      </div>
+                    )}
                     <p className={styles.projectDescription}>{link.description}</p>
                   </div>
                 ))}
