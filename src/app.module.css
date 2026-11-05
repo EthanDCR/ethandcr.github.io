@@ -97,7 +97,9 @@
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  height: 100%;
 }
 
 .projectCard {
@@ -457,14 +459,12 @@
   cursor: default;
 }
 
-/* Sized to the tallest tab (two rows of cards) so the shorter one sits inside
-   that space instead of pulling the footer up when you switch to it. Bump this
-   if a tab ever grows a third row. */
+/* Fixed, not min-height, and not centred. Both matter: centring moved the
+   cards down on the two-card tab, and letting the panel size to content made
+   each tab a different height. Pinned here, every tab puts its first row in
+   exactly the same place. Bump this if a tab ever grows a third row. */
 .tabPanel {
-  min-height: 268px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 294px;
 }
 
 /* Name and its tag on one line, so the tag reads as part of the title rather
