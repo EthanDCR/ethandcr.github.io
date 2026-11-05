@@ -443,10 +443,11 @@
   border-bottom-color: rgba(0, 0, 0, 0.45);
 }
 
-/* Two rows of cards is the tallest the panel ever gets (Projects); the other
-   two tabs hold two cards and would otherwise collapse the layout. */
+/* Sized to the tallest tab (two rows of cards) so the shorter one sits inside
+   that space instead of pulling the footer up when you switch to it. Bump this
+   if a tab ever grows a third row. */
 .tabPanel {
-  min-height: 232px;
+  min-height: 268px;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -69,6 +69,13 @@ function App() {
 
   const clientProjects: ClientProject[] = [
     {
+      name: "OwnerInfo (Proprietary)",
+      link: "https://www.ownerinfo.com",
+      role: "Frontend & backend",
+      description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers.",
+      techIcons: ["nextdotjs", "typescript", "supabase", "stripe"]
+    },
+    {
       name: "Owen Allen",
       link: "https://github.com/EthanDCR/owenAllen",
       role: "Design & build",
@@ -77,7 +84,7 @@ function App() {
     },
     {
       name: "Watchmen Roofing",
-      link: "https://github.com/EthanDCR/watchmenRoofingSite",
+      link: "https://watchmen-roofing.vercel.app/",
       role: "Design & build",
       description: "Landing page and contact flow for a roofing contractor, with quote requests routed to their inbox.",
       techIcons: ["nextdotjs", "typescript"]
@@ -97,13 +104,6 @@ function App() {
       description: "An offline, cross-platform desktop study app that generates flashcards from local files using on-device LLMs. Built to explore spaced repetition, local inference, and learning tools without relying on cloud services.",
       techIcons: ["go", "react", "typescript", "ollama"]
     },
-    {
-      name: "OwnerInfo (Proprietary)",
-      link: "https://www.ownerinfo.com",
-      description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers.",
-      techIcons: ["nextdotjs", "typescript", "supabase", "stripe"]
-    },
-
     {
       name: "Nas App",
       link: "https://www.github.com/ethandcr/pi-nas-app",
