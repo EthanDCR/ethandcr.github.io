@@ -2,7 +2,10 @@
 .lanyard-wrapper {
   position: fixed;
   top: 0;
-  left: 0;
+  /* Pulls the card out of the content column and into the left margin. This is
+     the element that actually positions the canvas — app.module.css's
+     .lanyardContainer wraps it but never moves it. */
+  left: -170px;
   z-index: 100;
   width: 100vw;
   height: 100vh;
