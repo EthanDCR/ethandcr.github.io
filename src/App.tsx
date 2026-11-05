@@ -10,6 +10,10 @@ import resumeIcon from "../public/resume.svg"
 
 function App() {
 
+  // One panel at a time, so the page never grows past the one screen it fit on
+  // before any of these sections existed.
+  const [tab, setTab] = useState<"projects" | "ventures" | "client">("projects")
+
   const [email] = useState("clinteth.dev@gmail.com")
   const [fullName] = useState("ETHAN CLINTON-RAGONESE")
   const location = "Waukesha, WI"
@@ -26,6 +30,59 @@ function App() {
     description: string
     techIcons?: string[]
   }
+
+  // Two things I own, as opposed to the Projects list below, which is things I
+  // built. Kept separate because "I run this" and "I made this" are different
+  // claims and collapsing them makes both read as weaker.
+  interface Venture {
+    name: string
+    link: string
+    status: string
+    description: string
+    techIcons?: string[]
+  }
+
+  interface ClientProject {
+    name: string
+    link: string
+    role: string
+    description: string
+    techIcons?: string[]
+  }
+
+  const ventures: Venture[] = [
+    {
+      name: "Ballista",
+      link: "https://theballista.com",
+      status: "private beta",
+      description: "Property data, dialer, callbacks and pipeline in one system for storm restoration teams.",
+      techIcons: ["react", "typescript", "go"]
+    },
+    {
+      name: "Call-Stars",
+      link: "https://callstars.theballista.com",
+      status: "live",
+      description: "Cold-call training portal for new reps — scripts, objections and graded practice.",
+      techIcons: ["react", "typescript"]
+    },
+  ]
+
+  const clientProjects: ClientProject[] = [
+    {
+      name: "Owen Allen",
+      link: "https://github.com/EthanDCR/owenAllen",
+      role: "Design & build",
+      description: "Portfolio site for a designer. Animation-led, built around his own illustration work.",
+      techIcons: ["react", "typescript"]
+    },
+    {
+      name: "Watchmen Roofing",
+      link: "https://github.com/EthanDCR/watchmenRoofingSite",
+      role: "Design & build",
+      description: "Landing page and contact flow for a roofing contractor, with quote requests routed to their inbox.",
+      techIcons: ["nextdotjs", "typescript"]
+    },
+  ]
 
   const socialLinks: socialLink[] = [
     { name: "Github", link: "https://www.github.com/ethandcr" },
@@ -113,31 +170,89 @@ function App() {
           <div className={styles.sectionDivider}></div>
 
           <div className={styles.topSection}>
-
-
             <div className={styles.projectsSection}>
-              <h2>Projects</h2>
-              <div className={styles.projects}>
-                {projectLinks.length > 0 && projectLinks.map((link, i) => (
-                  <div key={i} className={styles.projectCard}>
-                    <a className={styles.projectLink} href={link.link}>
-                      <h3>{link.name}</h3>
-                    </a>
-                    {link.techIcons && link.techIcons.length > 0 && (
-                      <div className={styles.techIcons}>
-                        {link.techIcons.map((icon, idx) => (
-                          <img
-                            key={idx}
-                            src={`/simpleIcons/${icon}.svg`}
-                            alt={icon}
-                            className={styles.techIcon}
-                          />
-                        ))}
-                      </div>
-                    )}
-                    <p className={styles.projectDescription}>{link.description}</p>
-                  </div>
+              <div className={styles.tabBar}>
+                {([
+                  ["projects", "Projects"],
+                  ["ventures", "Ventures"],
+                  ["client", "Client Work"],
+                ] as const).map(([key, label]) => (
+                  <button
+                    key={key}
+                    className={`${styles.tab} ${tab === key ? styles.tabActive : ""}`}
+                    onClick={() => setTab(key)}
+                  >
+                    {label}
+                  </button>
                 ))}
+              </div>
+
+              <div className={styles.tabPanel}>
+                {tab === "projects" && (
+                  <div className={styles.projects}>
+                    {projectLinks.map((link, i) => (
+                      <div key={i} className={styles.projectCard}>
+                        <a className={styles.projectLink} href={link.link}>
+                          <h3>{link.name}</h3>
+                        </a>
+                        {link.techIcons && link.techIcons.length > 0 && (
+                          <div className={styles.techIcons}>
+                            {link.techIcons.map((icon, idx) => (
+                              <img key={idx} src={`/simpleIcons/${icon}.svg`} alt={icon} className={styles.techIcon} />
+                            ))}
+                          </div>
+                        )}
+                        <p className={styles.projectDescription}>{link.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {tab === "ventures" && (
+                  <div className={styles.projects}>
+                    {ventures.map((v, i) => (
+                      <div key={i} className={styles.projectCard}>
+                        <div className={styles.cardHead}>
+                          <a className={styles.projectLink} href={v.link}>
+                            <h3>{v.name}</h3>
+                          </a>
+                          <span className={styles.statusTag}>{v.status}</span>
+                        </div>
+                        {v.techIcons && (
+                          <div className={styles.techIcons}>
+                            {v.techIcons.map((icon, idx) => (
+                              <img key={idx} src={`/simpleIcons/${icon}.svg`} alt={icon} className={styles.techIcon} />
+                            ))}
+                          </div>
+                        )}
+                        <p className={styles.projectDescription}>{v.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {tab === "client" && (
+                  <div className={styles.projects}>
+                    {clientProjects.map((c, i) => (
+                      <div key={i} className={styles.projectCard}>
+                        <div className={styles.cardHead}>
+                          <a className={styles.projectLink} href={c.link}>
+                            <h3>{c.name}</h3>
+                          </a>
+                          <span className={styles.roleTag}>{c.role}</span>
+                        </div>
+                        {c.techIcons && (
+                          <div className={styles.techIcons}>
+                            {c.techIcons.map((icon, idx) => (
+                              <img key={idx} src={`/simpleIcons/${icon}.svg`} alt={icon} className={styles.techIcon} />
+                            ))}
+                          </div>
+                        )}
+                        <p className={styles.projectDescription}>{c.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

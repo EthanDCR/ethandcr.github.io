@@ -29,15 +29,15 @@
 .linksAndStack {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .sectionDivider {
   height: 1px;
   background: rgba(0, 0, 0, 0.25);
-  margin: 16px auto;
+  margin: 10px auto;
   width: 65%;
   opacity: 0.6;
 }
@@ -82,10 +82,10 @@
 .projectsSection h2 {
   font-family: "Schoolbell", cursive;
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
-  margin-top: 8px;
-  margin-bottom: 18px;
+  margin-top: 4px;
+  margin-bottom: 12px;
   padding: 0;
   border: none;
   background: transparent;
@@ -97,11 +97,11 @@
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 14px;
 }
 
 .projectCard {
-  padding: 20px;
+  padding: 14px 16px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.55);
@@ -110,8 +110,8 @@
 }
 
 .projectCard h3 {
-  font-size: 20px;
-  margin: 0 0 8px 0;
+  font-size: 19px;
+  margin: 0 0 5px 0;
 }
 
 .projectLink {
@@ -128,7 +128,7 @@
 .techIcons {
   display: flex;
   gap: 8px;
-  margin: 6px 0 10px;
+  margin: 4px 0 7px;
   opacity: 0.45;
 }
 
@@ -143,8 +143,8 @@
 }
 
 .projectDescription {
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 13.5px;
+  line-height: 1.35;
   margin: 0;
   color: #333;
 }
@@ -169,9 +169,9 @@
   background: rgba(255, 255, 255, 0.35);
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  padding: 18px 32px 28px 32px;
+  padding: 14px 32px 16px 32px;
   width: min(1100px, 92%);
-  margin: 24px auto;
+  margin: 14px auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -220,8 +220,8 @@
 
 
   padding-left: 50px;
-  font-size: 42px;
-  margin: 0 0 8px 0;
+  font-size: 36px;
+  margin: 0 0 4px 0;
 }
 
 .subtitle {
@@ -238,7 +238,7 @@
   gap: 12px;
   font-size: 15px;
   color: #555;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .separator {
@@ -257,7 +257,7 @@
 }
 
 .footer {
-  margin-top: 30px;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -406,4 +406,81 @@
     font-size: 12px;
     line-height: 1.5;
   }
+}
+
+/* ── Tabs: Projects / Ventures / Client Work ─────────────────────────────
+   One panel at a time. The page fit on a single screen before these sections
+   existed and it still does, because only one of them is ever rendered. The
+   panel carries a min-height so switching tabs doesn't jump the footer up and
+   down — the shorter panels sit in the space the longest one needs. */
+
+.tabBar {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 2px 0 12px;
+}
+
+.tab {
+  font-family: "Schoolbell", cursive;
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  color: #888;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 2px 12px 3px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab:hover {
+  color: #555;
+}
+
+.tabActive {
+  color: #222;
+  border-bottom-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Two rows of cards is the tallest the panel ever gets (Projects); the other
+   two tabs hold two cards and would otherwise collapse the layout. */
+.tabPanel {
+  min-height: 232px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Name and its tag on one line, so the tag reads as part of the title rather
+   than a separate row of chrome. */
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cardHead h3 {
+  margin-bottom: 0;
+}
+
+.statusTag {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #2f7d4f;
+  background: rgba(47, 125, 79, 0.1);
+  border: 1px solid rgba(47, 125, 79, 0.22);
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+
+.roleTag {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #777;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  padding: 1px 6px;
 }
