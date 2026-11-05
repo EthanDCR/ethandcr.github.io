@@ -77,7 +77,7 @@ function App() {
     },
     {
       name: "Owen Allen",
-      link: "https://github.com/EthanDCR/owenAllen",
+      link: "https://owenallenco.github.io/",
       role: "Design & build",
       description: "Portfolio site for a designer. Animation-led, built around his own illustration work.",
       techIcons: ["react", "typescript"]
