@@ -44,7 +44,9 @@ function App() {
 
   interface ClientProject {
     name: string
-    link: string
+    // Optional: OwnerInfo is proprietary and has no public URL, so its card
+    // renders as plain text rather than a link that goes nowhere.
+    link?: string
     role: string
     description: string
     techIcons?: string[]
@@ -70,7 +72,6 @@ function App() {
   const clientProjects: ClientProject[] = [
     {
       name: "OwnerInfo (Proprietary)",
-      link: "https://www.ownerinfo.com",
       role: "Frontend & backend",
       description: "A property-owner data enrichment platform. I built and maintain the application layer across frontend and backend, integrating Supabase, Next.js API routes, and multiple third-party data providers.",
       techIcons: ["nextdotjs", "typescript", "supabase", "stripe"]
@@ -236,9 +237,13 @@ function App() {
                     {clientProjects.map((c, i) => (
                       <div key={i} className={styles.projectCard}>
                         <div className={styles.cardHead}>
-                          <a className={styles.projectLink} href={c.link}>
-                            <h3>{c.name}</h3>
-                          </a>
+                          {c.link ? (
+                            <a className={styles.projectLink} href={c.link}>
+                              <h3>{c.name}</h3>
+                            </a>
+                          ) : (
+                            <h3 className={styles.cardTitlePlain}>{c.name}</h3>
+                          )}
                           <span className={styles.roleTag}>{c.role}</span>
                         </div>
                         {c.techIcons && (

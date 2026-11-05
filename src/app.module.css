@@ -499,3 +499,12 @@
   border-radius: 3px;
   padding: 1px 6px;
 }
+
+/* A card with no public URL. Same size and weight as the linked titles — only
+   the colour differs, so it reads as "this one doesn't go anywhere" rather
+   than as a broken link. */
+.cardTitlePlain {
+  color: #333;
+  font-weight: 600;
+  cursor: default;
+}
