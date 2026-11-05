@@ -350,10 +350,16 @@
     gap: 8px;
   }
 
+  /* Single column, so the desktop grid's two fixed equal rows stop applying —
+     three cards into two rows of a 294px panel is what made the text spill out
+     and land on top of the card below. On mobile the panel grows instead. */
   .projects {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
     gap: 16px;
   }
+
 
   .projectCard {
     padding: 16px;
@@ -380,11 +386,15 @@
     font-size: 22px;
   }
 
+  /* Side by side and small. Stacked at full size these two took 130px of a
+     phone screen for what is a footer ornament. */
   .moneroStuff {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 14px;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -407,6 +417,7 @@
   .projectCard {
     padding: 14px;
   }
+
 
   .projectCard h3 {
     font-size: 16px;
@@ -515,4 +526,72 @@
   color: #333;
   font-weight: 600;
   cursor: default;
+}
+
+/* ── Mobile overrides for the tab row and footer ─────────────────────────────
+   These live at the end of the file on purpose. The .tab, .tabPanel and
+   .moneroStuff base rules are defined below the earlier @media blocks, and at
+   equal specificity the later rule wins — overrides placed up there silently
+   lost, which is why the tabs kept rendering at their desktop 18px on a
+   phone. */
+
+@media (max-width: 768px) {
+  /* Let the panel grow. Its fixed desktop height exists to stop the footer
+     jumping between tabs, which is a non-problem on a single-column phone
+     layout and actively harmful: three stacked cards don't fit in 294px. */
+  .tabPanel {
+    height: auto;
+    min-height: 0;
+    display: block;
+  }
+
+  /* nowrap keeps "Client Work" on one line inside its own button; wrap lets a
+     whole button drop to a second row if all three genuinely don't fit, which
+     reads better than squeezing the padding out of every one of them. */
+  .tabBar {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tab {
+    font-size: 15px;
+    padding: 3px 11px 4px;
+    white-space: nowrap;
+  }
+
+  .footer {
+    margin-top: 10px;
+  }
+
+  /* Side by side and small. Stacked at full size these two ate 130px of a
+     phone screen for what is a footer ornament. */
+  .moneroStuff {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .moneroStuff img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .tab {
+    font-size: 13.5px;
+    padding: 3px 8px 4px;
+    letter-spacing: 0;
+  }
+
+  .tabBar {
+    gap: 5px;
+  }
+
+  .moneroStuff img {
+    width: 32px !important;
+    height: 32px !important;
+  }
 }

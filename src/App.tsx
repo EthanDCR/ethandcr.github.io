@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Component, useState, type ReactNode } from "react"
 import styles from "./app.module.css"
 import Lanyard from "./components/Lanyard"
 import cardLogo from "../public/headShotCropped1.png"
@@ -7,6 +7,32 @@ import moneroLogo from "../public/monero-xmr-logo.svg"
 import resumeIcon from "../public/resume.svg"
 
 
+
+// The lanyard is a WebGL toy, and it is the only thing on this page that can
+// fail for environmental reasons — a browser with WebGL off, a driver Safari
+// doesn't like, a GLB that won't decode. Without a boundary a throw inside it
+// unmounts the whole tree and the site renders blank, which is a catastrophic
+// outcome for an ornament. With one, the worst case is that the card is absent
+// and everything else is untouched.
+class LanyardBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  componentDidCatch(err: unknown) { console.warn("[lanyard] disabled after a render error:", err) }
+  render() { return this.state.failed ? null : this.props.children }
+}
+
+// Checked before mounting rather than caught afterwards: a missing WebGL
+// context is a normal browser configuration, not an error worth a boundary.
+function hasWebGL(): boolean {
+  try {
+    const c = document.createElement("canvas")
+    return !!(c.getContext("webgl2") || c.getContext("webgl"))
+  } catch {
+    return false
+  }
+}
+
+const WEBGL_OK = typeof window !== "undefined" && hasWebGL()
 
 function App() {
 
@@ -123,9 +149,13 @@ function App() {
   return (
     <div className={styles.page}>
       <>
-        <div className={styles.lanyardContainer}>
-          <Lanyard position={[10, -8, 30]} cardImage={cardLogo} />
-        </div>
+        {WEBGL_OK && (
+          <div className={styles.lanyardContainer}>
+            <LanyardBoundary>
+              <Lanyard position={[10, -8, 30]} cardImage={cardLogo} />
+            </LanyardBoundary>
+          </div>
+        )}
 
         <div className={styles.contentContainer}>
           <a href="/EthanDcr.resume.pdf" download className={styles.resumeDownload}>
