@@ -16,7 +16,7 @@ function App() {
 
   const [email] = useState("clinteth.dev@gmail.com")
   const [fullName] = useState("ETHAN CLINTON-RAGONESE")
-  const location = "Waukesha, WI"
+  const location = "Milwaukee, WI"
 
 
   interface socialLink {

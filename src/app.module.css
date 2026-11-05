@@ -417,30 +417,44 @@
 .tabBar {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  margin: 2px 0 12px;
+  gap: 8px;
+  margin: 2px 0 14px;
 }
 
+/* These started as plain text with an underline on the active one, which read
+   as a heading rather than a control — nobody could tell the other two were
+   clickable. They borrow the card's own surface and border instead, so the row
+   reads as three things you can press. */
 .tab {
   font-family: "Schoolbell", cursive;
-  font-size: 19px;
+  font-size: 18px;
   letter-spacing: 0.04em;
-  color: #888;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 2px 12px 3px;
+  color: #7d7d7d;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  padding: 4px 16px 5px;
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .tab:hover {
-  color: #555;
+  color: #333;
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
 }
 
-.tabActive {
-  color: #222;
-  border-bottom-color: rgba(0, 0, 0, 0.45);
+/* The selected one is the only filled, shadowed, full-contrast item in the row,
+   and it sits a pixel lower than its hovered neighbours — pressed, not raised. */
+.tabActive,
+.tabActive:hover {
+  color: #111;
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  transform: none;
+  cursor: default;
 }
 
 /* Sized to the tallest tab (two rows of cards) so the shorter one sits inside
